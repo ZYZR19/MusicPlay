@@ -27,7 +27,7 @@ public class LoveMusicServlet extends HttpServlet {
         System.out.println("musicID" + musicId);
 
         User user = (User) req.getSession().getAttribute("user");
-     int user_id = user.getId();
+        int user_id = user.getId();
         MusicDao musicDao = new MusicDao();
 
         Map<String,Object> map = new HashMap<>();

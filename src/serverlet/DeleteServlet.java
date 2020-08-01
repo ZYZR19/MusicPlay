@@ -19,7 +19,7 @@ import java.util.Map;
 public class DeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-      /*  req.setCharacterEncoding("utf-8");
+        req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
 
         String idStr = req.getParameter("id");//获取请求体传过来的参数
@@ -53,8 +53,15 @@ public class DeleteServlet extends HttpServlet {
 
          }
          ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(resp.getWriter(),return_map);//写回给前端*/
-        System.out.println("删除指定音乐！");
+        mapper.writeValue(resp.getWriter(),return_map);//写回给前端
+
+
+
+
+
+
+
+        /*System.out.println("删除指定音乐！");
         req.setCharacterEncoding("utf-8");
         resp.setContentType("application/json;charset=utf-8");
 
@@ -90,6 +97,6 @@ public class DeleteServlet extends HttpServlet {
         }
 
         ObjectMapper mapper=new ObjectMapper();
-        mapper.writeValue(resp.getWriter(),return_map);
+        mapper.writeValue(resp.getWriter(),return_map);*/
     }
 }

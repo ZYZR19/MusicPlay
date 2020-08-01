@@ -5,9 +5,7 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String gender;
-    private int age;
-    private String email;
+
 
     public int getId() {
         return id;
@@ -33,29 +31,6 @@ public class User {
         this.password = password;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     @Override
     public String toString() {
@@ -63,9 +38,6 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                ", email='" + email + '\'' +
                 '}';
     }
 }

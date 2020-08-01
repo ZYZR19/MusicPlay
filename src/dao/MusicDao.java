@@ -208,7 +208,7 @@ public class MusicDao {
         return false;
     }
 
-    //当删除服务器上的音乐时,同时在我喜欢的离别数据库中进行删除
+    //当删除服务器上的音乐时,同时在我喜欢的数据库中进行删除
     public int removeLoveMusicOnDelete(int music_id) {
         Connection connection = null;
         PreparedStatement ps = null;
