@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 //有关用户相关的数据库操作
 public class UserDao {
-     public static User login(User loginUser) {
+     public  User login(User loginUser) {
          User  user =null;
          Connection connection = null;//获取连接
          PreparedStatement ps = null;//预编译
@@ -44,11 +44,11 @@ public class UserDao {
 
      }
 
-    public static void main(String[] args) {
-        User user = new User();
+  public static void main(String[] args) {
+        /*User user = new User();
         user.setUsername("bit");
         user.setPassword("123");
         User loginUser = login(user);
-        System.out.println(loginUser);
+        System.out.println(loginUser);*/
     }
 }
