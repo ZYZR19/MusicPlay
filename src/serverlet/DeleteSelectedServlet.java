@@ -34,7 +34,7 @@ public class DeleteSelectedServlet extends HttpServlet {
         for (int i=0;i<values.length ; i++) {//遍历删除
               int j = Integer.parseInt(values[i]);//把字符串转换成int
             System.out.println("选中音乐的id" +j);
-            //调用service层删除
+            //调用dao层删除
             Music music = musicDao.findMusicById(j);//先查找后删除
             int delete = musicDao.deleteMusicById(j);
             //sum=sum+delete
