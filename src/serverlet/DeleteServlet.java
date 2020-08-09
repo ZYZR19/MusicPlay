@@ -37,7 +37,7 @@ public class DeleteServlet extends HttpServlet {
          if (delete==1) {
              //数据库删除 服务器上的还在
              //如何去 删除文件
-             File file = new File("F:\\javacode1\\MusicPlay\\web\\"+ music.getUrl()+".mp3");//拼接当前音乐的url
+             File file = new File("/root/java/apache-tomcat-8.5.57/webapps/musicplay/"+ music.getUrl()+".mp3");//拼接当前音乐的url
              if (file.delete()) {//io流返回的是布尔类型的
                  //删除成功需要写到map中
                  return_map.put("msg",true);

@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>高博播放器实现</title>
+    <title>音乐播放器实现</title>
 
     <link rel="shortcut icon" href="#" />
 
@@ -28,13 +28,8 @@
         }
     </style>
 
-    <style>
-        #body{
-            /*background-image: url("images/3.png");
-            background-size:100% 100%;
-            background-attachment: fixed;*/
-        }
-    </style>
+
+
 
     <script type="text/javascript">
         $(function () {
@@ -42,7 +37,7 @@
         });
         function load(musicName){
             $.ajax({
-                url: "/GaoBoMusic/findMusic",
+                url: "/musicplay/findMusic",
                 type:"get",
                 data:{musicName:musicName},
                 dataType: "json",
@@ -85,7 +80,7 @@
         function loveInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/GaoBoMusic/loveMusicServlet",
+                url:"/musicplay/loveMusicServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -93,7 +88,7 @@
                 success: function (data) {
                     if(data.msg===true){
                         alert("加入喜欢的列表成功");
-                        window.location.href="list.html";
+                        window.location.href="/musicplay/list.html";
                     }else{
                         alert("加入喜欢的列表失败或者已经存在该音乐");
                     }
@@ -104,7 +99,7 @@
         function deleteInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/GaoBoMusic/deleteServlet",
+                url:"/musicplay/deleteServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -112,7 +107,7 @@
                 success: function (data) {
                     if(data.msg===true){
                         alert("删除成功");
-                        window.location.href="list.html";
+                        window.location.href="/musicplay/list.html";
                     }else{
                         alert("删除失败");
                     }
@@ -141,7 +136,7 @@
                     });
                     //发送ajax请求
                     $.ajax({
-                        url:"/GaoBoMusic/deleteSelMusicServlet",
+                        url:"/musicplay/deleteSelMusicServlet",
                         //将id数组，发送给deleteSelectedServlet
                         data:{"id":id},
                         type: "POST",
@@ -149,7 +144,7 @@
                         success:function (data) {
                             if(data.msg===true){
                                 alert("删除成功");
-                                window.location.href="list.html";
+                                window.location.href="/musicplay/list.html";
                             }else{
                                 alert("删除失败");
                             }
@@ -162,7 +157,7 @@
 </head>
 <body id="body">
 <div class="container">
-    <h3 style="text-align: center">高博播放器实现</h3>
+    <h3 style="text-align: center">音乐播放器实现</h3>
     <div style="float: left;">
         <form class="form-inline">
             <div class="form-group">
@@ -173,10 +168,10 @@
         </form>
     </div>
     <div style="float: right;margin-bottom: 15px">
-        <a class="btn btn-primary" href="/GaoBoMusic/MV.html">MV列表</a>
-        <a class="btn btn-primary" href="/GaoBoMusic/loveMusic.html">喜欢列表</a>
-        <a class="btn btn-primary" href="/GaoBoMusic/upload.html">添加歌曲</a>
+        <a class="btn btn-primary" href="/musicplay/loveMusic.html">喜欢列表</a>
+        <a class="btn btn-primary" href="/musicplay/upload.html">添加歌曲</a>
         <a id="delete" class="btn btn-primary">删除选中</a>
+        <a class="btn btn-primary" href="/musicplay/login.html">退出</a>
     </div>
     <table border="1" class="table table-bordered table-hover">
         <tr class="success">

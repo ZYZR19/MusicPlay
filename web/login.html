@@ -17,42 +17,67 @@
 	  <script type="text/javascript"></script>
 	  <style>
 		  #body{
-			  background-image: url("images/3.png");
+			  background-image: url("images/11.jpg");
               /*background-size:100% 100%;
               background-attachment: fixed;*/
       }
       </style>
 	  <script>
 		  //登录请求
-		  $(function () {
-		  	$("#submit").click(function () {
-				var username=$("#user").val();
-				var password=$("#password").val();
-				$.ajax({
-					url:"/loginServlet",
-                    data:{"username":username,"password":password},
-                    type:"POST",
-					dataType:"json",
-					success:function (data) {
+		  $(function () {  //自动执行$代表JQuery库
+		  	$("#submit").click(function () {  //#id  id是唯一的
+				var username=$("#user").val();//获取的是user的val  会获得输入的值
+				var password=$("#password").val();//获取密码
+				$.ajax({//相当于一个方法
+					url:"/musicplay/loginServlet",//路径
+                    data:{"username":username,"password":password},//发送给后端的数据
+                    type:"POST",//哪种类型的请求之前api设计好的
+					dataType:"json",//后端发送给前端的数据类型 响应会返回一个map显示成功或失败
+					success:function (data) {//如果成功data里面就是后端返回的数据 json
                         console.log(data);
                         if(data.msg===true){
-                            window.location.href="list.html";
+                          window.location.href="/musicplay/list.html";
                         }else{
                             /*window.location.reload();*/
                             $("#message").text("账号或密码错误，请重试!");
                             $("#user").val("");
                             $("#password").val("");
                             $("#verifycode").val("");
-                        }
+                        }//这里的代码就是发送给后端的
 					}
 				});
 			});
 		  });
+
+          $(function () {  //自动执行$代表JQuery库
+              $("#submit").click(function () {  //#id  id是唯一的
+                  var username=$("#user").val();//获取的是user的val  会获得输入的值
+                  var password=$("#password").val();//获取密码
+                  $.ajax({//相当于一个方法
+                      url:"/musicplay/registerServlet",//路径
+                      data:{"username":username,"password":password},//发送给后端的数据
+                      type:"POST",//哪种类型的请求之前api设计好的
+                      dataType:"json",//后端发送给前端的数据类型 响应会返回一个map显示成功或失败
+                      success:function (data) {//如果成功data里面就是后端返回的数据 json
+                          console.log(data);
+                          if(data.msg===true){
+                              window.location.href="/musicplay/list.html";
+                          }else{
+                              /*window.location.reload();*/
+                              $("#message").text("账号已注册，请重试!");
+                              $("#user").val("");
+                              $("#password").val("");
+                              $("#verifycode").val("");
+                          }//这里的代码就是发送给后端的
+                      }
+                  });
+              });
+          });
 	  </script>
   </head>
   <body id="body">
   	<div class="container" style="width: 400px;margin-top: 110px;background-color: rgba(255,255,255,0.8)">
-  		<h3 style="text-align: center;">管理员登录</h3>
+  		<h3 style="text-align: center;">用户登录</h3>
 <!--        <form action="login" method="post">-->
 	      <div class="form-group" >
 	        <label for="user">用户名：</label>
@@ -68,6 +93,10 @@
 	      <div class="form-group" style="text-align: center;"><!--class="form-group"-->
 	        <input style="width: 200px;height: 40px" id="submit" class="btn btn btn-primary" type="button" value="登录" >
 		  </div>
+		<div style="text-align: center;"><!--class="form-group"-->
+			<a style="width: 200px;height: 40px" class="btn btn btn-primary" href="/musicplay/register.html" >注册</a>
+		</div>
+
 <!--	  	</form>-->
 		<!-- 出错显示的信息框 -->
 	  	<div class="alert alert-warning alert-dismissible" role="alert">

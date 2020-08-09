@@ -11,8 +11,8 @@ import java.sql.ResultSet;
 import java.sql.*;
 
 public class DBUtils {
-    private static String url = "jdbc:mysql://127.0.0.1:3306/musicserver?useSSL=false";
-    private static String password = "823102";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/musicserver?characterEncoding=utf-8&useSSL=false";
+    private static String password = "";
     private static String username = "root";
 
 

@@ -19,7 +19,7 @@ import java.util.List;
 //本地上传后还要上传到数据库 跳转到uploadsucess.html这个页面 然后输入歌手名提交
 @WebServlet("/upload")
 public class UploadMusicServlet extends HttpServlet {
-    private final  String SAVEPATH ="F:\\javacode1\\MusicPlay\\web\\music\\";//定义一个路径要把music写进music
+    private final  String SAVEPATH ="/root/java/apache-tomcat-8.5.57/webapps/musicplay/music";//定义一个路径要把music写进music
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

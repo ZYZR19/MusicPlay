@@ -13,7 +13,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <title>高博播放器实现</title>
+    <title>音乐播放器实现</title>
 
     <link rel="shortcut icon" href="#" />
 
@@ -34,7 +34,7 @@
         });
         function load(loveMusicName){
             $.ajax({
-                url: "/GaoBoMusic/findLoveMusic",
+                url: "/musicplay/findLoveMusic",
                 type:"get",
                 data:{loveMusicName:loveMusicName},
                 dataType: "json",
@@ -60,7 +60,7 @@
         function deleteInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/GaoBoMusic/removeLoveServlet",
+                url:"/musicplay/removeLoveServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -68,7 +68,7 @@
                 success: function (data) {
                     if(data.msg===true){
                         alert("移除成功");
-                        window.location.href="/GaoBoMusic/loveMusic.html";
+                        window.location.href="/musicplay/loveMusic.html";
                     }else{
                         alert("移除失败");
                     }
@@ -97,7 +97,7 @@
         </form>
     </div>
     <div style="float: right;margin-bottom: 15px">
-        <a class="btn btn-primary" href="/GaoBoMusic/list.html">回到首页</a>
+        <a class="btn btn-primary" href="/musicplay/list.html">回到首页</a>
     </div>
     <table border="1" class="table table-bordered table-hover">
         <tr class="success">

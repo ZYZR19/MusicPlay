@@ -40,7 +40,7 @@ public class DeleteSelectedServlet extends HttpServlet {
             //sum=sum+delete
             if (delete==1) {
                 //数据库删除之后检查服务器否存在
-                File file  = new File("F:\\javacode1\\MusicPlay\\web\\"+music.getUrl()+".mp3");
+                File file  = new File("/root/java/apache-tomcat-8.5.57/webapps/musicplay/"+music.getUrl()+".mp3");
                 System.out.println("文件是否存在:" +file.exists());
                 System.out.println("file" + file);
                 if (file.delete()) {
